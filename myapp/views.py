@@ -1,9 +1,7 @@
 from django.http import HttpResponse, JsonResponse
-from _datetime import datetime, timezone
+from _datetime import datetime
 from django.core.exceptions import ObjectDoesNotExist
 import json
-from django.test import Client
-
 from myapp.models import Courier, Order
 
 
@@ -245,59 +243,3 @@ def get_courier(request, courier_id):
         "earnings": courier.earnings
     })
 
-
-def test(request):
-    c = Client()
-    '''response = c.post('/myapp/couriers/', {
-        "data": [
-            {
-                "courier_id": 1,
-                "courier_type": "foot",
-                "regions": [1, 15],
-                "working_hours": ["11:35-14:05", "09:00-11:00"]
-            },
-            {
-                "courier_id": 2,
-                "courier_type": "bike",
-                "regions": [22],
-                "working_hours": ["09:00-18:00"]
-            },
-            {
-                "courier_id": 3,
-                "courier_type": "car",
-                "regions": [22, 23, 33],
-                "working_hours": ["07:00-20:00"]
-            }
-        ]
-    })'''
-    response = c.get('/myapp/couriers/1')
-    #response = c.patch('/myapp/couriers/1', {"courier_type": "bike"})
-    #response = c.get('/myapp/orders/assign/', {"courier_id": 1})
-    '''response = c.get('/myapp/orders/complete/', {
-        "courier_id": 1,
-        "order_id": 2,
-        "complete_time": "2021-01-10T10:33:01.42Z"
-    })'''
-    '''response = c.post('/myapp/orders/', {
-        "data": [
-            {
-                "order_id": 1,
-                "weight": 0.23,
-                "region": 33,
-                "delivery_hours": ["09:00-18:00"]
-            },
-            {
-                "order_id": 2,
-                "weight": 15,
-                "region": 1,
-                "delivery_hours": ["09:00-18:00"]
-            },
-            {
-                "order_id": 3,
-                "weight": 0.01,
-                "region": 22,
-                "delivery_hours": ["09:00-12:00", "16:00-21:30"]
-            }
-        ]
-    })'''
-    return HttpResponse(response)
