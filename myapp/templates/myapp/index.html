@@ -1,0 +1,9 @@
+{% if couriers %}
+    <ul>
+    {% for courier in couriers %}
+        <li><a href="/polls/{{ courier.id }}/">{{ courier.type }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No couriers are available.</p>
+{% endif %}
