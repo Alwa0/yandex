@@ -183,7 +183,7 @@ def complete(request):
     courier_id = request.GET.get("courier_id")
     order_id = request.GET.get("order_id")
     complete_time = request.GET.get("complete_time")
-    response = JsonResponse(data="Bad Request", status=400, safe=False)
+    response = HttpResponse(status=400, safe=False)
     try:
         Order.objects.get(id=order_id)
     except ObjectDoesNotExist:
