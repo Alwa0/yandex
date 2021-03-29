@@ -1,4 +1,4 @@
-# Candy delivieres
+# Candy deliveries
 REST API server that is able to recruit couriers, take orders, assign orders to couriers, and count their ratings and earnings.
 ## Prerequirments:
 Check first to see if you have the tools required already installed:
