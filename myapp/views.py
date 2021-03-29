@@ -2,6 +2,9 @@ from django.http import HttpResponse, JsonResponse
 from _datetime import datetime
 from django.core.exceptions import ObjectDoesNotExist
 import json
+
+from django.test import Client
+
 from myapp.models import Courier, Order
 
 
@@ -144,6 +147,10 @@ def orders(request):
 def assign(request):
     courier_id = request.GET.get("courier_id")
     response = ""
+    try:
+        Courier.objects.get(id=courier_id)
+    except ObjectDoesNotExist:
+        return HttpResponse(status=400)
     courier = Courier.objects.get(id=courier_id)
     orders = Order.objects.order_by("weight").filter(assign_time=None)
     assigned = []
@@ -183,7 +190,7 @@ def complete(request):
     courier_id = request.GET.get("courier_id")
     order_id = request.GET.get("order_id")
     complete_time = request.GET.get("complete_time")
-    response = HttpResponse(status=400, safe=False)
+    response = HttpResponse(status=400)
     try:
         Order.objects.get(id=order_id)
     except ObjectDoesNotExist:
@@ -242,4 +249,5 @@ def get_courier(request, courier_id):
         "rating": courier.rating,
         "earnings": courier.earnings
     })
+
 
