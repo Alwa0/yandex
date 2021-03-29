@@ -216,6 +216,10 @@ def complete(request):
 
 
 def get_courier(request, courier_id):
+    try:
+        Courier.objects.get(id=courier_id)
+    except ObjectDoesNotExist:
+        return HttpResponse(status=400)
     courier = Courier.objects.get(id=courier_id)
     orders = courier.orders.filter(complete=True)
     td = []
