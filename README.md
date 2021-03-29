@@ -29,5 +29,11 @@ Install the latest version of PostgreSQL:
 
         $ sudo -u postgres psql
         postgres=# \password postgres
-5. Run `python3 manage.py migrate` to apply migrations
-6. Run `python3 manage.py runserver` to run server locally or `python3 manage.py runserver 0.0.0.0:8000` globally
+## Running the project
+
+1. Run `python3 manage.py migrate` to apply migrations
+2. Run `python3 manage.py runserver` to run server locally or `python3 manage.py runserver 0.0.0.0:8000` globally
+
+To run tests:
+
+    $ python3 manage.py test
