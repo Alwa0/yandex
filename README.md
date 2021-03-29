@@ -22,9 +22,9 @@ Install the latest version of PostgreSQL:
     $ sudo apt-get install postgresql
 
 ## Installation:
-1. clone git repository`git clone https://github.com/Alwa0/yandex`
+1. Clone git repository`git clone https://github.com/Alwa0/yandex`
 2. Install all libraries `pip install -r requirments.txt`
-3. create local postgresql database and add all required information to `yandex_test/settings.py` (by default postgresql, where name, user and password are 'postgres' listen on port 5432):
+3. Create local postgresql database and add all required information to `yandex_test/settings.py` (by default postgresql, where name, user and password are 'postgres' listen on port 5432):
 
         $ sudo -u postgres psql
         postgres=# \password postgres
